@@ -13,10 +13,10 @@ void main (){
 
     pArq = fopen(fileName, "r");
 
-    for(int j = 0, count = 0, alfa = 41; alfa <=90; j++){
+    for(count = 0, alfa = 41; alfa <=90;){
 
         
-        for(int i = 0; fileLetter != EOF; i++, fileLetter = getc(pArq)){
+        for(; fileLetter != EOF; fileLetter = getc(pArq)){
 
              if((alfa || alfa+32) == fileLetter){
                 count++;
@@ -25,7 +25,7 @@ void main (){
         }
         printf("a letra %c repetiu %i vezes\n", alfa, count);
     
-
+    fclose(pArq);
 
 
     }
