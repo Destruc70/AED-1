@@ -28,3 +28,4 @@ void main (void){
         printf("%c ", c);
     }
     fclose(pArq);
+}
