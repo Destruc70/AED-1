@@ -8,6 +8,7 @@ void main(){
     int i = 0, j = 0, temp;
 
     stringDinamica = malloc(sizeof(char)*16);
+    pStringEnd = malloc(sizeof(char)*16);
     *stringDinamica = '\0';
 
     printf("entre com o nome: ");
@@ -15,18 +16,16 @@ void main(){
     i = strlen(tempNome);
     tempNome[i] = ';';
     tempNome[i+1] = '\0';
-    i = strlen(tempNome);
+    i = strlen(tempNome);  
 
-    pStringEnd = stringDinamica;  
-
-    for(j = 0; *pStringEnd != '\0'; j++, pStringEnd++);
+    for(j = 0; *stringDinamica != '\0'; j++, stringDinamica++);
+    stringDinamica = stringDinamica-j;
     if(j > 0){
 
         stringDinamica = realloc(stringDinamica, sizeof(char)*i+sizeof(char)*j);//realoca para tamanho da string;
 
     }
     else stringDinamica = realloc(stringDinamica, sizeof(char)*i+sizeof(char)*j);//realoca para tamanho da string;
-
     strcpy(stringDinamica, tempNome);
     
     //for(j = 0; *pStringEnd != '\0'; j++, pStringEnd++);
@@ -40,7 +39,7 @@ void main(){
     i = strlen(tempNome);
 
     temp = sizeof(char)*i+sizeof(char)*j;
-    stringDinamica = realloc(stringDinamica, temp);//realoca para tamanho da string, ao fazer o realloc pela segunda vez o programa crasha
+    pStringEnd = realloc(stringDinamica, temp);//realoca para tamanho da string, ao fazer o realloc pela segunda vez o programa crasha
     printf("here");
     strcpy(stringDinamica, tempNome);
 
