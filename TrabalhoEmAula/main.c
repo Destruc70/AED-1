@@ -23,7 +23,7 @@ int main(void){
 
     int vectSize, numCheck, numOption;
     int *vector, *vectorPos;
-    int j = 0, i = 0, countNunsCheck = 0; //mudar nome da variavel
+    int j = 0, i = 0, k = 0, l = 0, countNunsCheck = 0; //mudar nome da variavel
     
     printf("Entre com tamanho do vetor:");
     scanf("%d", &vectSize);//lendo tamanho do vetor dado pelo usuario
@@ -79,6 +79,15 @@ int main(void){
                     countNunsCheck++; // aumenta contagem de checagem dos valores
                     printf("valores encontrados: %d e %d", *(vectorPos+i), *(vectorPos+j));
                     printf("\n\n\n");
+
+                    for(k = i; k < vectSize-2; k++){ //inicia pelo indice do primeiro valor
+                        for(l = j; l < vectSize-1; l++){// inicia pelo indice do segundo valor
+
+                            *(vectorPos+l) = *(vectorPos+l+1);//puxa todos valores 1 unidade para tras removendo o valor no indice determinado
+                        }
+
+                        *(vectorPos+k) = *(vectorPos+k+1);//puxa todos valores 1 unidade para tras removendo o valor no indice determinado
+                    }                   
                 }                    
             }
         }
