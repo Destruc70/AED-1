@@ -2,28 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-// rand() retorna valor random, função da stdlib
-
-/*
-primeiro criar vetor dinamico com tamanho definido pelo usuario. check
-segundo inserir valores randomicos no vetor. check
-terceiro imprimir vetor com valores. check
-quarto ler valor inserido pelo usuario . check
-quinto procurar se há valor igual no vetor. check
-sexto se não houver, procurar valores somados igual ao valor inserido pelo usuario. check
-setimo imprimir o valor ou valores do vetor encontrados. 
-oitavo remover o valor escolhido pelo usuario do vetor. maybe check
-nono redimencionar vetor.
-
- changelog:
- todos vectorPos++ trocados por *(vector++) ou *(vector+j)
-*/
-
 int main(void){
 
     int vectSize, numCheck, numOption;
     int *vector, *vectorPos;
-    int j = 0, i = 0, k = 0, l = 0, countNunsCheck = 0; //mudar nome da variavel
+    int j = 0, i = 0, k = 0, l = 0, countNunsCheck = 0; 
     
     printf("Entre com tamanho do vetor:");
     scanf("%d", &vectSize);//lendo tamanho do vetor dado pelo usuario
@@ -52,19 +35,17 @@ int main(void){
 
             countNunsCheck++; //contador para controle de quantos numeros foram encontrados
             for(j = i; j < vectSize-1; j++){
+
                 *(vectorPos+j) = *(vectorPos+j+1);
             }
-
-
-           }
         }
+    }
         if(countNunsCheck > 0){
             
             vectorPos = vector;
-            vectorPos = (int *)realloc(vector, (vectSize-1)*sizeof(int));
+            vectorPos = (int *)realloc(vector, (vectSize-1)*sizeof(int));//reduz o tamanho do vetor em 1
         }
-
-    if(countNunsCheck == 0){
+    else if(countNunsCheck == 0){
 
         printf("Nao foi encontrado valor.\nProcurando valores somados...\n");
         //aqui realiza a soma dos elementos para saber se ha possiveis
@@ -81,21 +62,19 @@ int main(void){
                     printf("\n\n\n");
 
                     for(k = i; k < vectSize-2; k++){ //inicia pelo indice do primeiro valor
+
                         for(l = j; l < vectSize-1; l++){// inicia pelo indice do segundo valor
 
                             *(vectorPos+l) = *(vectorPos+l+1);//puxa todos valores 1 unidade para tras removendo o valor no indice determinado
                         }
-
                         *(vectorPos+k) = *(vectorPos+k+1);//puxa todos valores 1 unidade para tras removendo o valor no indice determinado
                     }                   
                 }                    
             }
         }
-
-        vectorPos = vector;
-        vectorPos = (int *)realloc(vector, (vectSize-2)*sizeof(int));
+        vectorPos = vector;//endereço de vector em vectorPos
+        vectorPos = (int *)realloc(vector, (vectSize-2)*sizeof(int));//reduz tamanho do vetor em 2
     }
-
     return 0;
 }
 
