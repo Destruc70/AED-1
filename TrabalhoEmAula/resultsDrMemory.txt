@@ -1,0 +1,34 @@
+Windows version: WinVer=105;Rel=2009;Build=22000;Edition=Professional
+Dr. Memory results for pid 6748: "main.exe"
+Application cmdline: "C:\Users\Administrator\Documents\AED1\AED-1\TrabalhoEmAula\main.exe"
+Recorded 124 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin64\suppress-default.txt
+System call information is missing for this operating system: WinVer=105;Rel=2009;Build=22000;Edition=Professional.
+
+Error #1: LEAK 36 direct bytes 0x0000025f11470460-0x0000025f11470484 + 0 indirect bytes
+# 0 replace_malloc                 [d:\a\drmemory\drmemory\common\alloc_replace.c:2580]
+# 1 msvcrt.dll!fputc              +0x11e    (0x00007ff8204a08ff <msvcrt.dll+0x508ff>)
+# 2 __mingw_pformat
+# 3 __acrt_iob_func
+# 4 _unlock_file
+# 5 __mingw_vfprintf
+# 6 printf  
+# 7 main    
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total warning(s)
+      1 unique,     1 total,     36 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      1 potential leak(s) (suspected false positives)
+         (details: C:\Users\Administrator\AppData\Roaming\Dr. Memory\DrMemory-main.exe.6748.000\potential_errors.txt)
+      3 unique,     3 total,    100 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\Administrator\AppData\Roaming\Dr. Memory\DrMemory-main.exe.6748.000\results.txt

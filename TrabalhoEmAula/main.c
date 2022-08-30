@@ -44,6 +44,7 @@ int main(void){
             
             vectorPos = vector;
             vectorPos = (int *)realloc(vector, (vectSize-1)*sizeof(int));//reduz o tamanho do vetor em 1
+            vectSize--;
         }
     else if(countNunsCheck == 0){
 
@@ -61,7 +62,7 @@ int main(void){
                     printf("valores encontrados: %d e %d", *(vectorPos+i), *(vectorPos+j));
                     printf("\n\n\n");
 
-                    for(k = i; k < vectSize-2; k++){ //inicia pelo indice do primeiro valor
+                    for(k = i; k < vectSize-1; k++){ //inicia pelo indice do primeiro valor
 
                         for(l = j; l < vectSize-1; l++){// inicia pelo indice do segundo valor
 
@@ -74,7 +75,12 @@ int main(void){
         }
         vectorPos = vector;//endereço de vector em vectorPos
         vectorPos = (int *)realloc(vector, (vectSize-2)*sizeof(int));//reduz tamanho do vetor em 2
+        vectSize = vectSize-2;
     }
+    for(i = 0; i < vectSize; i++){ //imprimindo valores do vetor
+
+        printf("%d ", *(vectorPos+i));
+        }
     return 0;
 }
 
