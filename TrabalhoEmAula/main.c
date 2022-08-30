@@ -51,9 +51,18 @@ int main(void){
         if(*(vectorPos+i) == numCheck){
 
             countNunsCheck++; //contador para controle de quantos numeros foram encontrados
-            *(vectorPos+i) == 0;//trocar valor            
+            for(j = i; j < vectSize-1; j++){
+                *(vectorPos+j) = *(vectorPos+j+1);
+            }
+
+
            }
-        }    
+        }
+        if(countNunsCheck > 0){
+            
+            vectorPos = vector;
+            vectorPos = (int *)realloc(vector, (vectSize-1)*sizeof(int));
+        }
 
     if(countNunsCheck == 0){
 
@@ -70,17 +79,13 @@ int main(void){
                     countNunsCheck++; // aumenta contagem de checagem dos valores
                     printf("valores encontrados: %d e %d", *(vectorPos+i), *(vectorPos+j));
                     printf("\n\n\n");
-                    *(vectorPos+i) = 0;//trocar valor
-                    *(vectorPos+j) = 0;//trocar valor
                 }                    
             }
         }
+
+        vectorPos = vector;
+        vectorPos = (int *)realloc(vector, (vectSize-2)*sizeof(int));
     }
-
-    else
-        printf("Nao foram encontrados valores possiveis...\n Encerrando programa...\n");
-    
-
 
     return 0;
 }
